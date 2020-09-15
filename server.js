@@ -19,7 +19,7 @@ const app = express();
 
 // db
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost/kigaliPhones', {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -52,15 +52,7 @@ app.use('/api', orderRoutes);
 
 app.use('/uploads', express.static('uploads'));
 
-// Serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('kpc-client/build'));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'kpc-client', 'build', 'index.html'));
-  });
-}
 
 const port = process.env.PORT || 8000;
 
