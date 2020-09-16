@@ -50,7 +50,7 @@ app.use('/api', productRoutes);
 app.use('/api', getTokenRoutes);
 app.use('/api', orderRoutes);
 
-app.use('/uploads', express.static('uploads'));
+app.use('/api/uploads', express.static('uploads'));
 
 
 
