@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use(expressValidator());
 if (process.env.NODE_ENV === 'development') {
   app.use(cors({
-    origin: process.env.CLIENT_URL
+    // origin: process.env.CLIENT_URL
   }))
   app.use(morgan('dev'))
 }
